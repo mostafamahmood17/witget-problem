@@ -5,22 +5,19 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from '../App';
 
 
-const SecondPage = () => {
+const SellSecondPage = () => {
     const { wallet, setWallet } = useContext(UserContext);
-    const [inWallet ='1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', setInWallet] = useState("");
-
-   
-
-
+    const [iniWallet ='1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', setIniWallet] = useState("");
 
     let history = useHistory();
 
   const validWallet = () => {
-    const valid = WAValidator.validate(inWallet , "BTC");
+    const valid = WAValidator.validate(iniWallet , "BTC");
     console.log(valid)
     if (valid) {
-      history.push("/thirdPage");
-      setWallet(inWallet);
+        setWallet(iniWallet);
+      history.push("/sellThirdPage");
+      
     } else {
       alert("Address INVALID");
     }
@@ -28,20 +25,20 @@ const SecondPage = () => {
 
     return (
         <div className="box">
-            {/* <form action=""> */}
+       
                 <h3>Setup 2/4</h3>
-                <input onBlur={(e)=>setInWallet(e.target.value)} type="text" placeholder="Enter your BSC wallet address"></input>
+                <input onBlur={(e)=>setIniWallet(e.target.value)} type="text" placeholder="Enter your BSC wallet address" required/>
                 <br />
-                <h3>You will receive your TAOA in this address</h3>
+                <h3>If for some reason we can not proceed with your sale (which is rare) we will completely return your assets. Please provide a BSC valid wallet address that you have access a BSC valid wallet attention to not input any incorrect information.</h3>
                 <br />
-                <h3>Pay close attention mistakes will make you loose all your assets and there is nothing we can do to help</h3>
                 <a className="anchor" text-align="center" href="https://www.binance.org/en/smartChain" target="_blank" >Don't have a BC wallet yet?</a>
                 <br/>
                 <input onClick={validWallet} className="nextButton" type="submit" value="Next"/>
-            {/* </form> */}
+
+         
 
         </div>
     );
 };
 
-export default SecondPage;
+export default SellSecondPage;

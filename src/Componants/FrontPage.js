@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../App';
 import './FrontPage.css'
-import SecondPage from './SecondPage';
 
 const FrontPage = () => {
     const { country, setCountry, quantity, setQuantity } = useContext(UserContext);
@@ -17,20 +16,18 @@ const FrontPage = () => {
 
     const handleChange = (e) => {
         setCountry(e.target.value);
-        console.log(e.target.value)
     };
     const handleNumber = (e) => {
         setQuantity(e.target.value);
-        console.log(e.target.value)
     };
-    console.log(country)
+   
 
     return (
         <div>
             <div className="box">
                 <h4>Stablecoin gateway - Buy</h4>
-                {/* <form action=""> */}
-                    <select onChange={handleChange}  width="200px !important" name="coin" id="coin" >
+              
+                    <select  onChange={handleChange}  className="w-75" name="coin" id="coin" >
                         <option>Select Country</option>
                         {currency.map(currencies => (
                             <option key={currencies.name}>
@@ -40,13 +37,13 @@ const FrontPage = () => {
 
                     </select>
                     <br />
-                    <input type="number" onBlur={handleNumber} placeholder="Quantity" />
+                    <input className="w-75" type="number" onBlur={handleNumber} placeholder="Quantity" />
                     <h3>Total cost @price AOA/TAOA</h3>
                     <Link to="/secondPage">
                     <input className="nextButton" type="submit" value="Next" />
                     </Link>
 
-                {/* </form> */}
+               
 
             </div>
 
