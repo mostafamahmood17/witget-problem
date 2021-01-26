@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../App';
 
 const ThirdPage = () => {
 
-    const [selectBank, setSelectBank] = useState("Chose Your Bank");
+    const {bank, setBank} = useContext(UserContext);
 
     const handleChange = (e) => {
-          setSelectBank(e);
+        console.log(e.target.value)
+          setBank(e.target.value);
+          
     };
     return (
         <div className="box">
             <form >
                 <h3>STEP 3/4</h3>
-                <select onSelect={handleChange} name="bank" id="bank">
+                <select onChange={handleChange} className="w-75" name="bank" id="bank" >
                     <option value="Private Bank">Private Bank</option>
                     <option value="Public Bank">Public Bank</option>
                     <option value="Our Bank">Our Bank</option>

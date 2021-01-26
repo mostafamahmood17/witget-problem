@@ -27,11 +27,11 @@ const FrontPage = () => {
             <div className="box">
                 <h4>Stablecoin gateway - Buy</h4>
               
-                    <select  onChange={handleChange}  className="w-75" name="coin" id="coin" >
+                    <select onChange={handleChange}  className="w-75" name="coin" id="coin" >
                         <option>Select Country</option>
                         {currency.map(currencies => (
                             <option key={currencies.name}>
-                                {currencies.name} - ( {currencies.currencies[0].code})
+                                {currencies.name} - ( {currencies.currencies[0].name})
                             </option>
                         ))}
 
