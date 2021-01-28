@@ -16,7 +16,7 @@ const FourthPage = () => {
 
    const handleSubmit = ()=>{
        const totalValue = { country, quantity, wallet, htmlId, IBAN, bank };
-        fetch("http://localhost:5000/buy", {
+        fetch("https://rocky-savannah-16999.herokuapp.com/buy", {
                   method: "POST",
                   headers: {
                     "Content-type": "application/json; charset=UTF-8",

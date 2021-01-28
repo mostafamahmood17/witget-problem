@@ -9,7 +9,7 @@ const SellFourthPage = () => {
         const totalInfo = { account, wallet, newToken, txid, sellQuantity };
         console.log(totalInfo)
 
-        fetch("http://localhost:5000/sell", {
+        fetch("https://rocky-savannah-16999.herokuapp.com/sell", {
             method: "POST",
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
